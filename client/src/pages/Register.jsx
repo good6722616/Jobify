@@ -1,12 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
+import { FormRow, Logo } from "../components";
 const Register = () => {
   return (
-    <div>
-      <h1>Register Page</h1>
-      <Link to="/login">Login Page</Link>
-    </div>
+    <Wrapper>
+      <form className="form">
+        <Logo />
+        <h4>Register</h4>
+        <FormRow type="text" name="name" defaultValue="Charles" />
+        <FormRow
+          type="text"
+          name="lastname"
+          labelText="lastname"
+          defaultValue="Zhang"
+        />
+        <FormRow type="text" name="location" defaultValue="irvine" />
+        <FormRow type="email" name="email" defaultValue="charles@gmail.com" />
+        <FormRow type="password" name="password" defaultValue="123456" />
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+        <p>
+          Already a member
+          <Link to="/login" className="member-btn">
+            Login
+          </Link>
+        </p>
+      </form>
+    </Wrapper>
   );
 };
 
