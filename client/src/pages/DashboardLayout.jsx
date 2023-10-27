@@ -5,18 +5,16 @@ import { Navbar, BigSidebar, SmallSidebar } from "../components";
 
 import { useState, createContext, useContext } from "react";
 
+import { checkDefaultTheme } from "../App";
+
 const DashboardContext = createContext();
-const checkDefaultTheme = () => {
-  const isDarkTheme = localStorage.getItem("darkTheme") === "true";
-  document.body.classList.toggle("dark-theme", isDarkTheme);
-  return isDarkTheme;
-};
+
 const Dashboard = () => {
   // temp
   const user = { name: "john" };
 
   const [showSidebar, setShowSidebar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme());
+  const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
 
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme;
